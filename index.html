@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#F5F4F0" />
+  <title>TamaTracker — Pengelola Keuangan Pribadi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+  <link rel="stylesheet" href="css/voice.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <!-- Sidebar -->
+    <aside class="sidebar" aria-label="Navigasi utama">
+      <div class="sidebar-brand">
+        <div class="logo">T</div>
+        <span>TamaTracker</span>
+      </div>
+      <nav class="sidebar-nav" id="sidebarNav"></nav>
+      <div class="sidebar-footer">
+        <button class="btn btn-ghost btn-sm" id="themeToggle" style="width:100%;justify-content:flex-start;">
+          <i data-lucide="moon"></i> <span id="themeLabel">Mode gelap</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <div class="main-wrap">
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="icon-btn" id="menuBtn" aria-label="Menu" style="display:none;">
+            <i data-lucide="menu"></i>
+          </button>
+          <div class="topbar-title" id="pageTitle">Dashboard</div>
+        </div>
+        <div class="topbar-actions">
+          <div class="search-input" style="width:220px;">
+            <i data-lucide="search"></i>
+            <input type="search" id="globalSearch" placeholder="Cari transaksi..." aria-label="Pencarian global" />
+          </div>
+          <button class="icon-btn" id="notifBtn" aria-label="Notifikasi">
+            <i data-lucide="bell"></i>
+          </button>
+          <button class="btn btn-primary btn-sm" id="quickAddBtn">
+            <i data-lucide="plus"></i> Tambah
+          </button>
+        </div>
+      </header>
+
+      <main class="main" id="mainContent">
+        <!-- Views injected/rendered here -->
+        <section class="view active" data-view="dashboard" id="view-dashboard"></section>
+        <section class="view" data-view="transactions" id="view-transactions"></section>
+        <section class="view" data-view="budgets" id="view-budgets"></section>
+        <section class="view" data-view="reports" id="view-reports"></section>
+        <section class="view" data-view="categories" id="view-categories"></section>
+        <section class="view" data-view="settings" id="view-settings"></section>
+      </main>
+    </div>
+  </div>
+
+  <!-- Bottom nav (mobile) -->
+  <nav class="bottom-nav" id="bottomNav" aria-label="Navigasi mobile"></nav>
+
+  <!-- AI voice assistant -->
+  <button class="voice-fab" id="voiceFab" aria-label="Buka asisten suara" title="Asisten suara (Ctrl+K)">
+    <i data-lucide="mic"></i>
+  </button>
+
+  <!-- Modal container -->
+  <div id="modalRoot"></div>
+  <!-- Toast container -->
+  <div class="toast-container" id="toastRoot"></div>
+  <!-- Notif panel -->
+  <div id="notifRoot"></div>
+  <!-- Voice assistant container -->
+  <div id="voiceRoot"></div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+/* pages.css */
+/* dashboard */
+.dash-grid { display: grid; grid-template-columns: 2fr 1fr; gap: var(--space-4); }
+@media (max-width: 900px) { .dash-grid { grid-template-columns: 1fr; } }
+.chart-card { min-height: 300px; }
+.recent-list { max-height: 420px; overflow-y: auto; }
+
+/* transactions toolbar */
+.tx-toolbar { display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: center; margin-bottom: var(--space-4); }
+.tx-toolbar .search-input { flex: 1; min-width: 200px; }
+
+/* budgets */
+.budget-card { display: flex; flex-direction: column; gap: var(--space-3); }
+.budget-head { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); }
+.budget-meta { display: flex; justify-content: space-between; font-size: var(--fs-xs); color: var(--text-muted); }
+
+/* reports */
+.report-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); }
+@media (max-width: 900px) { .report-grid { grid-template-columns: 1fr; } }
+
+/* categories */
+.cat-section { margin-bottom: var(--space-6); }
+.cat-section h4 { margin-bottom: var(--space-3); color: var(--text-muted); font-size: var(--fs-sm); text-transform: none; letter-spacing: 0; }
+
+/* settings */
+.settings-card { max-width: 720px; }

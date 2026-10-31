@@ -1,0 +1,120 @@
+/* tokens.css — design tokens */
+:root {
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+
+  --r-sm: 6px;
+  --r-md: 10px;
+  --r-lg: 14px;
+  --r-xl: 20px;
+  --r-pill: 999px;
+
+  --fs-xs: 12px;
+  --fs-sm: 13px;
+  --fs-base: 15px;
+  --fs-md: 17px;
+  --fs-lg: 20px;
+  --fs-xl: 24px;
+  --fs-2xl: 30px;
+  --fs-3xl: 38px;
+  --fs-4xl: 48px;
+
+  --lh-tight: 1.15;
+  --lh-base: 1.5;
+  --lh-loose: 1.65;
+
+  --shadow-sm: 0 1px 2px rgba(15, 20, 40, 0.06);
+  --shadow-md: 0 4px 12px rgba(15, 20, 40, 0.08);
+  --shadow-lg: 0 12px 32px rgba(15, 20, 40, 0.12);
+
+  --dur-fast: 140ms;
+  --dur-base: 220ms;
+  --dur-slow: 360ms;
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+
+  --sidebar-w: 256px;
+  --topbar-h: 64px;
+  --content-max: 1240px;
+}
+
+:root, [data-theme="light"] {
+  --bg: #F5F4F0;
+  --bg-elev: #FFFFFF;
+  --bg-subtle: #ECEAE4;
+  --bg-muted: #E2DFD7;
+  --border: #D9D5CB;
+  --border-strong: #BFB9AA;
+  --text: #1B1D2A;
+  --text-muted: #5A5D6E;
+  --text-faint: #8A8D9C;
+
+  --primary: #4338CA;
+  --primary-hover: #3730A3;
+  --primary-soft: #E0E7FF;
+  --primary-contrast: #FFFFFF;
+
+  --success: #059669;
+  --success-soft: #D1FAE5;
+  --danger: #DC2626;
+  --danger-soft: #FEE2E2;
+  --warning: #D97706;
+  --warning-soft: #FEF3C7;
+  --info: #0891B2;
+  --info-soft: #CFFAFE;
+
+  --chart-income: #059669;
+  --chart-expense: #DC2626;
+  --chart-balance: #4338CA;
+  --chart-grid: #E2DFD7;
+}
+
+[data-theme="dark"] {
+  --bg: #0B1020;
+  --bg-elev: #131A2E;
+  --bg-subtle: #1A2238;
+  --bg-muted: #222B45;
+  --border: #263049;
+  --border-strong: #3A4566;
+  --text: #E8EAF2;
+  --text-muted: #9BA3BF;
+  --text-faint: #6B7390;
+
+  --primary: #818CF8;
+  --primary-hover: #A5B4FC;
+  --primary-soft: #1E2347;
+  --primary-contrast: #0B1020;
+
+  --success: #34D399;
+  --success-soft: #0F2A22;
+  --danger: #F87171;
+  --danger-soft: #2A1414;
+  --warning: #FBBF24;
+  --warning-soft: #2A2008;
+  --info: #22D3EE;
+  --info-soft: #0E2529;
+
+  --chart-income: #34D399;
+  --chart-expense: #F87171;
+  --chart-balance: #818CF8;
+  --chart-grid: #263049;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-fast: 0ms;
+    --dur-base: 0ms;
+    --dur-slow: 0ms;
+  }
+}

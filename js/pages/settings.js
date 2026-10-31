@@ -52,6 +52,13 @@ export function renderSettings(container) {
       </div>
       <div class="settings-row">
         <div>
+          <div class="label">Onboarding</div>
+          <div class="desc">Tampilkan ulang panduan awal aplikasi.</div>
+        </div>
+        <button class="btn btn-secondary btn-sm" id="replayOnboardingBtn"><i data-lucide="sparkles"></i> Tampilkan ulang</button>
+      </div>
+      <div class="settings-row">
+        <div>
           <div class="label">Privasi</div>
           <div class="desc">Data keuangan disimpan lokal di browser Anda. Hanya teks perintah asisten suara yang dikirim ke Groq.</div>
         </div>
@@ -144,6 +151,10 @@ export function renderSettings(container) {
       danger: true,
       onConfirm: () => { store.resetAll(); toastSuccess('Data direset.'); renderSettings(container); },
     });
+  });
+  container.querySelector('#replayOnboardingBtn').addEventListener('click', () => {
+    store.setOnboardingCompleted(false);
+    location.reload();
   });
 
   // --- Voice assistant settings ---

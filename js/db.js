@@ -37,7 +37,7 @@ export function defaultState() {
     transactions: [],
     categories: makeCategories(),
     budgets: [],
-    settings: { theme: 'light', seeded: false, voice: { apiKey: '', saveMode: 'confirm' } },
+    settings: { theme: 'light', seeded: false, voice: { apiKey: '', saveMode: 'confirm' }, onboardingCompleted: false },
   };
 }
 
@@ -54,6 +54,9 @@ export function loadState() {
     if (!parsed.settings) parsed.settings = { theme: 'light' };
     if (!parsed.settings.voice || typeof parsed.settings.voice !== 'object') {
       parsed.settings.voice = { apiKey: '', saveMode: 'confirm' };
+    }
+    if (typeof parsed.settings.onboardingCompleted !== 'boolean') {
+      parsed.settings.onboardingCompleted = false;
     }
     if (!Array.isArray(parsed.budgets)) parsed.budgets = [];
     return parsed;
@@ -87,6 +90,9 @@ export function importJSON(text) {
   if (!parsed.settings) parsed.settings = { theme: 'light' };
   if (!parsed.settings.voice || typeof parsed.settings.voice !== 'object') {
     parsed.settings.voice = { apiKey: '', saveMode: 'confirm' };
+  }
+  if (typeof parsed.settings.onboardingCompleted !== 'boolean') {
+    parsed.settings.onboardingCompleted = false;
   }
   return parsed;
 }

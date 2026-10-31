@@ -9,8 +9,9 @@ import { renderReports } from './pages/reports.js';
 import { renderCategories } from './pages/categories.js';
 import { renderSettings } from './pages/settings.js';
 import { $, refreshIcons } from './utils/dom.js';
-import { toastInfo } from './components/toast.js';
+import { toastInfo, toastSuccess } from './components/toast.js';
 import { mountVoiceAssistant } from './components/voice-assistant.js';
+import { mountOnboarding, isOnboardingNeeded } from './components/onboarding.js';
 
 const VIEWS = ['dashboard', 'transactions', 'budgets', 'reports', 'categories', 'settings'];
 let currentView = 'dashboard';
@@ -106,6 +107,19 @@ function init() {
   store.applyTheme(store.getState().settings.theme);
   setupThemeToggle();
   mountVoiceAssistant();
+  refreshIcons();
+  if (isOnboardingNeeded()) {
+    mountOnboarding(() => {
+      toastSuccess('Selamat datang di TamaTracker!');
+      const hash = location.hash.replace('#', '');
+      navigate(VIEWS.includes(hash) ? hash : 'dashboard');
+      refreshIcons();
+      if (store.getState().transactions.length === 0) {
+        toastInfo('Tambahkan transaksi pertama Anda untuk mulai melacak keuangan.');
+      }
+    });
+    return;
+  }
   // route from hash
   const hash = location.hash.replace('#', '');
   navigate(VIEWS.includes(hash) ? hash : 'dashboard');

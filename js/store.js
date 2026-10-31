@@ -117,6 +117,16 @@ export function setVoiceSettings(patch) {
   return state.settings.voice;
 }
 
+// --- Onboarding ---
+export function getOnboardingCompleted() {
+  return state.settings.onboardingCompleted === true;
+}
+export function setOnboardingCompleted(value) {
+  state.settings.onboardingCompleted = Boolean(value);
+  persist();
+  return state.settings.onboardingCompleted;
+}
+
 export function restoreTransaction(tx) {
   state.transactions.unshift(tx);
   persist();
@@ -134,9 +144,13 @@ export function resetAll() {
 }
 export function importData(text) {
   const currentVoice = { ...getVoiceSettings() };
+  const currentOnboarding = getOnboardingCompleted();
   state = importJSON(text);
   if (!state.settings.voice) state.settings.voice = currentVoice;
   else if (!state.settings.voice.apiKey) state.settings.voice.apiKey = currentVoice.apiKey;
+  if (typeof state.settings.onboardingCompleted !== 'boolean') {
+    state.settings.onboardingCompleted = currentOnboarding;
+  }
   saveState(state);
   notify();
   applyTheme(state.settings.theme);

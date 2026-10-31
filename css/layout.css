@@ -18,11 +18,10 @@
   z-index: 30;
 }
 .sidebar-brand { display: flex; align-items: center; gap: var(--space-3); padding: 0 var(--space-2); }
-.sidebar-brand .logo {
+.sidebar-brand .logo-img {
   width: 36px; height: 36px; border-radius: var(--r-md);
-  background: linear-gradient(135deg, var(--primary), #7C3AED);
-  color: var(--primary-contrast);
-  display: grid; place-items: center; font-weight: 800; font-size: 16px;
+  object-fit: cover; display: block;
+  box-shadow: var(--shadow-sm);
 }
 .sidebar-brand span { font-weight: 700; font-size: var(--fs-lg); letter-spacing: -0.02em; }
 .sidebar-nav { display: flex; flex-direction: column; gap: var(--space-1); flex: 1; }
